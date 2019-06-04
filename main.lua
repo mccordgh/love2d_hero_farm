@@ -70,6 +70,7 @@ function love.draw()
 end
 
 function love.mousepressed(x, y, button, isTouch)
+    mouseManager.mousePressed(x, y, button, isTouch)
     -- mouse_pressed = true
 
     -- if x > (game.width / 2) then
@@ -80,6 +81,7 @@ function love.mousepressed(x, y, button, isTouch)
 end
 
 function love.mousereleased(x, y, button, isTouch)
+    mouseManager.mouseReleased(x, y, button, isTouch)
     -- mouse_pressed = false
 
     -- x_dir = 0
