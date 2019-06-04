@@ -15,18 +15,25 @@
 -- iPhone 6s	        750px × 1334px	        1334px × 750px
 -- iPhone SE	        640px × 1136px	        1136px × 640px
 
-local stateManager = require("modules.states.state_manager")
 local gameState = require("modules.states.game_state")
+local managerHandler = require("modules.manager_handler")
+
+local stateManager = nil
 -- require("game")
 -- require("game_board")
 -- require("player")
 
 function love.load()
-    stateManager.init()
+    managerHandler.init()
+
+    stateManager = managerHandler.createStateManager()
+    mouseManager = managerHandler.createMouseManager()
+
+    local world = nil -- managerHandler.createWorld()
+
+    gameState.init(managerHandler, world)
+
     stateManager.setState(gameState)
-    -- game.init()
-    -- game_board.init()
-    -- player.init()
 
     -- --calculate the amount of sx, and sy
     -- sx = game.width / love.graphics.getWidth()
