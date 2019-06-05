@@ -1,33 +1,29 @@
 local mouseManager = {}
 
-function mouseManager.init(managerHandler)
-    mouseManager.managerHandler = managerHandler;
-end
+function mouseManager:create()
+    _mouseManager = {}
 
--- function mouseManager.getMouseXFromEvent(event) {
---     return event.offsetX;
--- }
+    function _mouseManager:init(managerHandler)
+        _mouseManager.managerHandler = managerHandler;
+    end
 
--- getMouseYFromEvent(event) {
---     return event.offsetY;
--- }
+    function _mouseManager:mousePressed(x, y, button, isTouch)
+        _mouseManager.managerHandler.event('mouse_pressed', {
+            x =  x,
+            y =  y,
+            button = button,
+            isTouch = isTouch
+        })
+    end
 
-function mouseManager.mousePressed(x, y, button, isTouch)
-    mouseManager.managerHandler.event('mouse_pressed', {
-        x =  x,
-        y =  y,
-        button = button,
-        isTouch = isTouch
-    })
-end
-
-function mouseManager.mouseReleased(x, y, button, isTouch)
-    mouseManager.managerHandler.event('mouse_released', {
-        x =  x,
-        y =  y,
-        button = button,
-        isTouch = isTouch
-    })
+    function _mouseManager:mouseReleased(x, y, button, isTouch)
+        _mouseManager.managerHandler.event('mouse_released', {
+            x =  x,
+            y =  y,
+            button = button,
+            isTouch = isTouch
+        })
+    end
 end
 
 return mouseManager
