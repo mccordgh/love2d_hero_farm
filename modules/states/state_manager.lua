@@ -1,21 +1,16 @@
-local stateManager = {}
+require("modules.states.game_state")
 
-function stateManager.create()
-    _stateManager = {}
+StateManager = Class{
+    init = function(self, handler)
+        self.handler = handler
+        self.currentState = GameState(handler)
+    end;
 
-    function _stateManager.init()
-        _stateManager.currentState = nil
-    end
+    getState = function(self)
+        return self.currentState
+    end;
 
-    function _stateManager.getState()
-        return _stateManager.currentState
-    end
-
-    function _stateManager.setState(state)
-        _stateManager.currentState = state
-    end
-
-    return _stateManager
-end
-
-return stateManager
+    setState = function(self, state)
+        self.currentState = state
+    end;
+}

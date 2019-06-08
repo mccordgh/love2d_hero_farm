@@ -1,22 +1,13 @@
-local gameState = {}
+GameState = Class {
+    init = function(self, handler)
+        self.handler = handler
+    end;
 
-function gameState.create()
-    local _gameState = {}
+    update = function(self, deltaTime)
+        self.handler:getWorldManager():getWorld():update(deltaTime)
+    end;
 
-    function _gameState.init(managerHandler, world)
-        _gameState.managerHandler = managerHandler;
-        _gameState.world = world;
-    end
-
-    function _gameState.update(deltaTime)
-        _gameState.world.update(deltaTime);
-    end
-
-    function _gameState.draw()
-        _gameState.world.draw();
-    end
-
-    return _gameState
-end
-
-return gameState
+    draw = function(self)
+        self.handler:getWorldManager():getWorld():draw()
+    end;
+}
