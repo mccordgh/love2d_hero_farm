@@ -29,11 +29,12 @@ function love.load()
     stateManager = managerHandler.createStateManager()
     mouseManager = managerHandler.createMouseManager()
 
-    local world = nil -- managerHandler.createWorld()
+    local _world = managerHandler.createWorld()
 
-    gameState.init(managerHandler, world)
+    local _gameState = gameState.create()
+    _gameState.init(managerHandler, _world);
 
-    stateManager.setState(gameState)
+    stateManager.setState(_gameState)
 
     -- --calculate the amount of sx, and sy
     -- sx = game.width / love.graphics.getWidth()

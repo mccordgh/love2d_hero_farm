@@ -3,11 +3,11 @@ local mouseManager = {}
 function mouseManager:create()
     _mouseManager = {}
 
-    function _mouseManager:init(managerHandler)
+    function _mouseManager.init(managerHandler)
         _mouseManager.managerHandler = managerHandler;
     end
 
-    function _mouseManager:mousePressed(x, y, button, isTouch)
+    function _mouseManager.mousePressed(x, y, button, isTouch)
         _mouseManager.managerHandler.event('mouse_pressed', {
             x =  x,
             y =  y,
@@ -16,7 +16,7 @@ function mouseManager:create()
         })
     end
 
-    function _mouseManager:mouseReleased(x, y, button, isTouch)
+    function _mouseManager.mouseReleased(x, y, button, isTouch)
         _mouseManager.managerHandler.event('mouse_released', {
             x =  x,
             y =  y,
@@ -24,6 +24,8 @@ function mouseManager:create()
             isTouch = isTouch
         })
     end
+
+    return _mouseManager
 end
 
 return mouseManager
