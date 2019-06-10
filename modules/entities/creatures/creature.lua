@@ -7,8 +7,8 @@ Creature = Class {
         Entity:init(handler, x, y)
 
         self.handler = handler
-        self.x = x
-        self.y = y
+        self.x = x * GameConstants.tileWidth
+        self.y = y * GameConstants.tileHeight
     end;
 
     update = function(self, deltaTime)

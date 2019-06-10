@@ -33,8 +33,8 @@ WorldOne = Class{
 
         for y = 0, GameConstants.verticalTileCount - 1, 1
         do
-            love.graphics.rectangle("fill", 0, y * GameConstants.tileWidth, GameConstants.tileSize, GameConstants.tileSize)
-            love.graphics.rectangle("fill", (GameConstants.horizontalTileCount - 1) * GameConstants.tileWidth, y * GameConstants.tileHeight, GameConstants.tileSize, GameConstants.tileSize)
+            love.graphics.rectangle("fill", 0, y * GameConstants.tileWidth, GameConstants.tileWidth, GameConstants.tileHeight)
+            love.graphics.rectangle("fill", (GameConstants.horizontalTileCount - 1) * GameConstants.tileWidth, y * GameConstants.tileHeight, GameConstants.tileWidth, GameConstants.tileHeight)
         end
     end;
 
@@ -43,8 +43,8 @@ WorldOne = Class{
 
         for x = 1, GameConstants.horizontalTileCount - 1, 1
         do
-            love.graphics.rectangle("fill", x * GameConstants.tileWidth, 0, GameConstants.tileSize, GameConstants.tileSize)
-            love.graphics.rectangle("fill", x * GameConstants.tileWidth, (GameConstants.verticalTileCount - 1) * GameConstants.tileHeight, GameConstants.tileSize, GameConstants.tileSize)
+            love.graphics.rectangle("fill", x * GameConstants.tileWidth, 0, GameConstants.tileWidth, GameConstants.tileHeight)
+            love.graphics.rectangle("fill", x * GameConstants.tileWidth, (GameConstants.verticalTileCount - 1) * GameConstants.tileHeight, GameConstants.tileWidth, GameConstants.tileHeight)
         end
     end;
 
@@ -55,7 +55,7 @@ WorldOne = Class{
         do
             for x = 1, GameConstants.horizontalTileCount - 2, 1
             do
-                love.graphics.rectangle("line", x * GameConstants.tileWidth, y * GameConstants.tileHeight, GameConstants.tileSize, GameConstants.tileSize)
+                love.graphics.rectangle("line", x * GameConstants.tileWidth, y * GameConstants.tileHeight, GameConstants.tileWidth, GameConstants.tileHeight)
             end
         end
     end
