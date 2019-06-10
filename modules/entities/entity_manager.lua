@@ -3,7 +3,7 @@ require("modules.entities.creatures.players.player")
 EntityManager = Class{
     init = function(self, handler)
         self.handler = handler
-        self.player = Player(handler, 4, 4)
+        self.player = Player(handler, 4 * GameConstants.TileWidth, 4 * GameConstants.TileHeight, GameConstants.PlayerWidth, GameConstants.PlayerHeight)
         self.entities = { self.player }
     end;
 
