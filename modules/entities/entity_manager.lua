@@ -8,16 +8,16 @@ EntityManager = Class{
     end;
 
     update = function(self, deltaTime)
-        for k, v in ipairs(self.entities)
+        for k, entity in ipairs(self.entities)
         do
-            v:update()
+            entity:update()
         end
     end;
 
     draw = function(self)
-        for k, v in ipairs(self.entities)
+        for k, entity in ipairs(self.entities)
         do
-            v:draw()
+            entity:draw()
         end
     end;
 }
