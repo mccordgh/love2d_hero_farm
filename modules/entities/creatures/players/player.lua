@@ -16,6 +16,6 @@ Player = Class {
     end;
 
     draw = function(self)
-        love.graphics.print('player', self.x, self.y)
+        --
     end;
 }
