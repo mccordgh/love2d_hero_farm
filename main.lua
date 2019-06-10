@@ -20,6 +20,7 @@
 -- 16 down = 1024
 -- set screen size in conf.lua!
 
+require("libraries.lovedebug.lovedebug")
 require("constants.game_constants")
 require("modules.game")
 
