@@ -7,3 +7,6 @@
 [submodule "libraries/hc"]
 	path = libraries/hc
 	url = https://github.com/vrld/HC.git
+[submodule "libraries/lovedebug"]
+	path = libraries/lovedebug
+	url = https://github.com/flamendless/lovedebug.git
