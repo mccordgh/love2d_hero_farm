@@ -18,44 +18,44 @@ WorldOne = Class{
         -- draw background
         self:drawTiles()
 
-        -- draw horizontal borders
-        self:drawHorizontalBorders()
-
         -- draw vertical borders
         self:drawVerticalBorders()
+
+        -- draw horizontal borders
+        self:drawHorizontalBorders()
 
         -- draw entities
         self.entityManager:draw()
     end;
 
-    drawHorizontalBorders = function(self)
+    drawVerticalBorders = function(self)
         love.graphics.setColor(0.6, 0.6, 0.6, 1)
 
-        for y = 0, GameConstants.verticalTileCount - 1, 1
+        for y = 0, GameConstants.VerticalTileCount - 1, 1
         do
-            love.graphics.rectangle("fill", 0, y * GameConstants.tileWidth, GameConstants.tileWidth, GameConstants.tileHeight)
-            love.graphics.rectangle("fill", (GameConstants.horizontalTileCount - 1) * GameConstants.tileWidth, y * GameConstants.tileHeight, GameConstants.tileWidth, GameConstants.tileHeight)
+            love.graphics.rectangle("fill", 0, y * GameConstants.TileWidth, GameConstants.TileWidth, GameConstants.TileHeight)
+            love.graphics.rectangle("fill", (GameConstants.HorizontalTileCount - 1) * GameConstants.TileWidth, y * GameConstants.TileHeight, GameConstants.TileWidth, GameConstants.TileHeight)
         end
     end;
 
-    drawVerticalBorders = function(self)
+    drawHorizontalBorders = function(self)
         love.graphics.setColor(0.3, 0.3, 0.3, 1)
 
-        for x = 1, GameConstants.horizontalTileCount - 1, 1
+        for x = 1, GameConstants.HorizontalTileCount - 2, 1
         do
-            love.graphics.rectangle("fill", x * GameConstants.tileWidth, 0, GameConstants.tileWidth, GameConstants.tileHeight)
-            love.graphics.rectangle("fill", x * GameConstants.tileWidth, (GameConstants.verticalTileCount - 1) * GameConstants.tileHeight, GameConstants.tileWidth, GameConstants.tileHeight)
+            love.graphics.rectangle("fill", x * GameConstants.TileWidth, 0, GameConstants.TileWidth, GameConstants.TileHeight)
+            love.graphics.rectangle("fill", x * GameConstants.TileWidth, (GameConstants.VerticalTileCount - 1) * GameConstants.TileHeight, GameConstants.TileWidth, GameConstants.TileHeight)
         end
     end;
 
     drawTiles = function(self)
         love.graphics.setColor(1, 1, 1, 1)
 
-        for y = 1, GameConstants.verticalTileCount - 2, 1
+        for y = 1, GameConstants.VerticalTileCount - 2, 1
         do
-            for x = 1, GameConstants.horizontalTileCount - 2, 1
+            for x = 1, GameConstants.HorizontalTileCount - 2, 1
             do
-                love.graphics.rectangle("line", x * GameConstants.tileWidth, y * GameConstants.tileHeight, GameConstants.tileWidth, GameConstants.tileHeight)
+                love.graphics.rectangle("line", x * GameConstants.TileWidth, y * GameConstants.TileHeight, GameConstants.TileWidth, GameConstants.TileHeight)
             end
         end
     end
