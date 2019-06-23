@@ -12,11 +12,11 @@ AssetManager = Class{
     loadAsset = function(self, name, path)
         local asset = Asset(name, path)
 
-        if (self.assets[name] ~= nil) then
-            error("An asset named [" .. name .. "] already exists!")
+        if (self.assets[name] == nil) then
+            -- only add an asset if it doesnt already exist
+            self.assets[name] = asset
         end
 
-        self.assets[name] = asset
 
         return asset
     end;

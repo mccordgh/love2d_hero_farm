@@ -1,10 +1,11 @@
 require("modules.entities.creatures.players.player")
+require("modules.entities.items.card")
 
 EntityManager = Class{
     init = function(self, handler)
         self.handler = handler
-        self.player = self.createPlayer(handler);
-        self.entities = { self.player }
+        self.player = self.createPlayer(handler)
+        self.entities = { }
     end;
 
     createPlayer = function(handler)

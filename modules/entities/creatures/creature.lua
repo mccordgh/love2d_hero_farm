@@ -12,12 +12,4 @@ Creature = Class {
         self.width = width
         self.height = height
     end;
-
-    update = function(self, deltaTime)
-        --
-    end;
-
-    draw = function(self)
-        --
-    end;
 }

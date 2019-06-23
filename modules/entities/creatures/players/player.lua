@@ -4,20 +4,15 @@ Player = Class {
     __includes = Creature,
 
     init = function(self, handler, x, y, width, height)
-        Creature:init(handler, x, y, width, height)
+        local asset = handler:getAssetManager():loadAsset('player', 'assets/player/player.png')
 
+        Creature:init(handler, x, y, width, height, asset)
+
+        self.asset = asset
         self.handler = handler
         self.x = x
         self.y = y
         self.width = width
         self.height = height
-    end;
-
-    update = function(self, dt)
-        --
-    end;
-
-    draw = function(self)
-        love.graphics.rectangle("fill", self.x, self.y, self.width, self.height)
     end;
 }
