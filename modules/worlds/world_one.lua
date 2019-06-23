@@ -55,43 +55,42 @@ WorldOne = Class{
         self:drawTiles()
 
         -- draw vertical borders
-        self:drawVerticalBorders()
+        -- self:drawVerticalBorders()
 
         -- draw horizontal borders
-        self:drawHorizontalBorders()
+        -- self:drawHorizontalBorders()
 
         -- draw entities
         self.entityManager:draw()
     end;
 
-    drawVerticalBorders = function(self)
-        love.graphics.setColor(0.6, 0.6, 0.6, 1)
+    -- drawVerticalBorders = function(self)
+    --     love.graphics.setColor(0.6, 0.6, 0.6, 1)
 
-        for y = 0, GameConstants.VerticalTileCount - 1, 1
-        do
-            love.graphics.rectangle("fill", 0, y * GameConstants.TileWidth, GameConstants.TileWidth, GameConstants.TileHeight)
-            love.graphics.rectangle("fill", (GameConstants.HorizontalTileCount - 1) * GameConstants.TileWidth, y * GameConstants.TileHeight, GameConstants.TileWidth, GameConstants.TileHeight)
-        end
-    end;
+    --     for y = 0, GameConstants.VerticalTileCount - 1, 1
+    --     do
+    --         love.graphics.rectangle("fill", 0, y * GameConstants.TileWidth, GameConstants.TileWidth, GameConstants.TileHeight)
+    --         love.graphics.rectangle("fill", (GameConstants.HorizontalTileCount - 1) * GameConstants.TileWidth, y * GameConstants.TileHeight, GameConstants.TileWidth, GameConstants.TileHeight)
+    --     end
+    -- end;
 
-    drawHorizontalBorders = function(self)
-        love.graphics.setColor(0.3, 0.3, 0.3, 1)
+    -- drawHorizontalBorders = function(self)
+    --     love.graphics.setColor(0.3, 0.3, 0.3, 1)
 
-        for x = 1, GameConstants.HorizontalTileCount - 2, 1
-        do
-            love.graphics.rectangle("fill", x * GameConstants.TileWidth, 0, GameConstants.TileWidth, GameConstants.TileHeight)
-            love.graphics.rectangle("fill", x * GameConstants.TileWidth, (GameConstants.VerticalTileCount - 1) * GameConstants.TileHeight, GameConstants.TileWidth, GameConstants.TileHeight)
-        end
-    end;
+    --     for x = 1, GameConstants.HorizontalTileCount - 2, 1
+    --     do
+    --         love.graphics.rectangle("fill", x * GameConstants.TileWidth, 0, GameConstants.TileWidth, GameConstants.TileHeight)
+    --         love.graphics.rectangle("fill", x * GameConstants.TileWidth, (GameConstants.VerticalTileCount - 1) * GameConstants.TileHeight, GameConstants.TileWidth, GameConstants.TileHeight)
+    --     end
+    -- end;
 
     drawTiles = function(self)
-        love.graphics.setColor(1, 1, 1, 1)
-
-        for y = 1, GameConstants.VerticalTileCount - 2, 1
+        -- 10 across, 16 down
+        for y = 0, GameConstants.VerticalTileCount - 1, 1
         do
-            for x = 1, GameConstants.HorizontalTileCount - 2, 1
+            for x = 0, GameConstants.HorizontalTileCount - 1, 1
             do
-                love.graphics.rectangle("line", x * GameConstants.TileWidth, y * GameConstants.TileHeight, GameConstants.TileWidth, GameConstants.TileHeight)
+                self.handler:getTileManager():getTiles()[self.tileMap[y + 1][x + 1]]:draw(x * GameConstants.TileWidth, y * GameConstants.TileHeight)
             end
         end
     end
