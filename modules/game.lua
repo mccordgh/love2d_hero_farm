@@ -4,41 +4,46 @@ require("modules.handler")
 
 Game = Class {
     init = function(self)
-        self.handler = handler(self)
+        self.handler = Handler(self)
+        self.paused = false
     end;
 
     update = function(self, deltaTime)
-        self.handler:getStateManager():getState():update(deltaTime)
+        if (not paused) then
+            self.handler:getStateManager():getState():update(deltaTime)
+        end
     end;
 
     draw = function(self)
-        self.handler:getStateManager():getState():draw()
+        if (not paused) then
+            local cam = self.handler:getCamera()
+
+            cam:attach()
+
+            self.handler:getStateManager():getState():draw()
+
+            cam:detach()
+        end
     end;
 
     mousepressed = function(self, x, y, button, isTouch)
-        self.handler:mousepressed(x, y, button, isTouch)
-        -- mouse_pressed = true
-
-        -- if x > (game.width / 2) then
-        --     x_dir = 1
-        -- else
-        --     x_dir = -1
-        -- end
+        if (not paused) then
+            self.handler:mousepressed(x, y, button, isTouch)
+        end
     end;
 
     mousereleased = function(self, x, y, button, isTouch)
-        self.handler:mousereleased(x, y, button, isTouch)
-        -- mouse_pressed = false
-
-        -- x_dir = 0
+        if (not paused) then
+            self.handler:mousereleased(x, y, button, isTouch)
+        end
     end;
 
     focus = function(self, focused)
-        -- if not focused then
-        --     paused = true
-        -- else
-        --     paused = false
-        -- end
+        if (not focused) then
+            self.paused = true
+        else
+            self.paused = false
+        end
     end;
 
     quit = function(self)

@@ -53,7 +53,13 @@ WorldOne = Class{
         do
             for x = 0, GameConstants.HorizontalTileCount - 1, 1
             do
-                self.handler:getTileManager():getTiles()[self.tileMap[y + 1][x + 1]]:draw(x * GameConstants.TileWidth, y * GameConstants.TileHeight)
+                local tiles = self.handler:getTileManager():getTiles()
+                local currentTileId = self.tileMap[y + 1][x + 1]
+
+                local x = (x * GameConstants.TileWidth)
+                local y = (y * GameConstants.TileHeight)
+
+                tiles[currentTileId]:draw(x, y)
             end
         end
     end

@@ -2,15 +2,18 @@ require('modules.graphics.asset_manager')
 require('modules.states.state_manager')
 require('modules.tiles.tile_manager')
 require('modules.worlds.world_manager')
+
+Camera = require("libraries.hump.camera")
 -- require('debug.debugger')
 
-handler = Class{
+Handler = Class{
     init = function(self, game)
         self.game = game
 
         -- self.debugger = Debugger(self)
 
         self.assetManager = AssetManager(self)
+        self.camera = Camera.new()
         self.stateManager = StateManager(self)
         self.tileManager = TileManager(self)
         self.worldManager = WorldManager(self)
@@ -35,6 +38,10 @@ handler = Class{
 
     getAssetManager = function(self)
         return self.assetManager
+    end;
+
+    getCamera = function(self)
+        return self.camera
     end;
 
     getStateManager = function(self)
