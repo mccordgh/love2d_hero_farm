@@ -50,5 +50,6 @@ function love.focus(focused)
 end
 
 function love.quit()
-    game:quit()
+    return true
+    -- return game.quit()
 end
