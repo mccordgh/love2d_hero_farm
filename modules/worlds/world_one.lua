@@ -8,6 +8,7 @@ WorldOne = Class{
 
     initialize = function(self)
         self.tileMap = self.createTileMap()
+        self.entityManager:createLevelCards()
     end;
 
     createTileMap = function()
