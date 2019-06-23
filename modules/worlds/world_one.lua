@@ -13,24 +13,23 @@ WorldOne = Class{
 
     createTileMap = function()
         -- 10 across, 16 down
-        local map = {
-            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
-            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
-            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
-            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
-            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
-            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
-            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
-            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
-            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
-            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
-            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
-            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
-            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
-            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
-            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
-            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
-        }
+        local map = {}
+
+        for y = 1, GameConstants.VerticalTileCount, 1
+        do
+            for x = 1, GameConstants.HorizontalTileCount, 1
+            do
+                if (map[y] == nil) then
+                    map[y] = {}
+                end
+
+                if (x == 1 or x == GameConstants.HorizontalTileCount) then
+                    map[y][x] = 2
+                else
+                    map[y][x] = 1
+                end
+            end
+        end
 
         return map
     end;
