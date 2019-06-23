@@ -7,7 +7,43 @@ WorldOne = Class{
     end;
 
     initialize = function(self)
+        self.tileMap = self.createTileMap()
+    end;
 
+    createTileMap = function()
+        -- 10 across, 16 down
+        local map = {
+            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
+            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
+            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
+            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
+            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
+            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
+            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
+            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
+            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
+            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
+            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
+            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
+            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
+            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
+            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
+            { 2, 1, 1, 1, 1, 1, 1, 1, 1, 2 },
+        }
+
+        return map
+
+        -- for y = 1, GameConstants.VerticalTileCount, 1
+        -- do
+        --     for x = 1, GameConstants.HorizontalTileCount, 1
+        --     do
+        --         if (map[x] == nil) then
+        --             map[x] = {}
+        --         end
+
+        --         map[x][y] =
+        --     end
+        -- end
     end;
 
     update = function(self, deltaTime)
