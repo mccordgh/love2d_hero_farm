@@ -42,6 +42,7 @@ Game = Class {
     end;
 
     quit = function(self)
+        return true
         -- cleanup and end the game
     end;
 }
