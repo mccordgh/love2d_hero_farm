@@ -20,6 +20,9 @@
 -- 16 down = 1024
 -- set screen size in conf.lua!
 
+-- DEBUGGING Console => Ctrl/Shift + F8
+-- https://github.com/Ranguna/LOVEDEBUG
+
 require("libraries.lovedebug.lovedebug")
 require("constants.game_constants")
 require("modules.game")
