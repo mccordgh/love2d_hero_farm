@@ -30,6 +30,14 @@ Game = Class {
         end
     end;
 
+    keyPressed = function(self, key, scan_code, is_repeat)
+        self.handler:getKeyManager():keyPressed(key, scan_code, is_repeat)
+    end;
+
+    keyReleased = function(self, key, scan_code, is_repeat)
+        self.handler:getKeyManager():keyReleased(key, scan_code, is_repeat)
+    end;
+
     mousepressed = function(self, x, y, button, isTouch)
         if (not paused) then
             self.handler:mousepressed(x, y, button, isTouch)
@@ -48,10 +56,5 @@ Game = Class {
         else
             self.paused = false
         end
-    end;
-
-    quit = function(self)
-        return true
-        -- cleanup and end the game
     end;
 }
