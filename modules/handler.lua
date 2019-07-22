@@ -1,6 +1,8 @@
 require('modules.graphics.asset_manager')
+require('modules.input.key_manager')
 require('modules.states.state_manager')
 require('modules.tiles.tile_manager')
+require('modules.tiles.tile_map_manager')
 require('modules.worlds.world_manager')
 
 Camera = require("libraries.hump.camera")
@@ -11,11 +13,13 @@ Handler = Class{
         self.game = game
 
         -- self.debugger = Debugger(self)
+        self.camera = Camera.new()
 
         self.assetManager = AssetManager(self)
-        self.camera = Camera.new()
+        self.keyManager = KeyManager(self)
         self.stateManager = StateManager(self)
         self.tileManager = TileManager(self)
+        self.tileMapManager = TileMapManager(self)
         self.worldManager = WorldManager(self)
     end;
 
@@ -44,12 +48,20 @@ Handler = Class{
         return self.camera
     end;
 
+    getKeyManager = function(self)
+        return self.keyManager
+    end;
+
     getStateManager = function(self)
         return self.stateManager
     end;
 
     getTileManager = function(self)
         return self.tileManager
+    end;
+
+    getTileMapManager = function(self)
+        return self.tileMapManager
     end;
 
     getWorldManager = function(self)
