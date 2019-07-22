@@ -12,6 +12,10 @@ Game = Class {
         if (not paused) then
             self.handler:getStateManager():getState():update(deltaTime)
         end
+
+        if (self.handler:getKeyManager():getEscapeKey()) then
+            love.event.quit()
+        end
     end;
 
     draw = function(self)
