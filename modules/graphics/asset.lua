@@ -1,9 +1,9 @@
 Asset = Class{
-    init = function(self, name, path)
+    init = function(self, name, path, width, height)
         self.name = name;
         self.path = path;
-        self.width = GameConstants.TileWidth
-        self.height = GameConstants.TileHeight
+        self.width = width
+        self.height = height
 
         self.img = love.graphics.newImage(path)
         -- self.sheet = new SpriteSheet(ImageLoader.loadImage(self.path));

@@ -1,5 +1,7 @@
 Entity = Class {
     init = function(self, handler, x, y, width, height)
+        local asset = handler:getAssetManager():loadAsset('player', 'assets/player/player.png')
+
         self.handler = handler
         self.x = x
         self.y = y

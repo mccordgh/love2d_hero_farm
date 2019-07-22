@@ -4,11 +4,9 @@ Player = Class {
     __includes = Creature,
 
     init = function(self, handler, x, y, width, height)
-        local asset = handler:getAssetManager():loadAsset('player', 'assets/player/player.png')
+        Creature:init(handler, x, y, width, height)
 
-        Creature:init(handler, x, y, width, height, asset)
-
-        self.asset = asset
+        self.asset = handler:getAssetManager():loadAsset('player', 'assets/player/player.png')
         self.handler = handler
         self.type = "player"
         self.x = x
@@ -17,19 +15,20 @@ Player = Class {
         self.height = height
         self.xMove = 0
         self.yMove = 0
-        self.speed = 1
+        self.speed = 8
     end;
 
     update = function(self, dt)
         self:getInput(dt)
         self:move()
+        self.handler:getCamera():lookAt(self.x * GameConstants.TileWidth, self.y * GameConstants.TileHeight)
     end;
 
     draw = function(self)
         local x = self.x * GameConstants.TileWidth
         local y = self.y * GameConstants.TileHeight
 
-        love.graphics.draw(self.asset.img, x, y, 0, GameConstants.TileScale, GameConstants.TileScale)
+        love.graphics.draw(self.asset.img, x, y, 0)
     end;
 
     getInput = function(self, dt)
