@@ -3,8 +3,8 @@ GameState = Class {
         self.handler = handler
     end;
 
-    update = function(self, deltaTime)
-        self.handler:getWorldManager():getWorld():update(deltaTime)
+    update = function(self, dt)
+        self.handler:getWorldManager():getWorld():update(dt)
     end;
 
     draw = function(self)
