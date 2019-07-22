@@ -11,5 +11,12 @@ Creature = Class {
         self.y = y
         self.width = width
         self.height = height
+        self.xMove = 0
+        self.yMove = 0
     end;
+
+    move = function(self)
+        self.x = self.x + self.xMove
+        self.y = self.y + self.yMove
+    end
 }
