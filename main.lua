@@ -20,7 +20,7 @@
 -- 16 down = 1024
 -- set screen size in conf.lua!
 
--- DEBUGGING Console => Ctrl/Shift + F8
+-- DEBUGGING Console => Ctrl/Shift + F8 // print("message")
 -- https://github.com/Ranguna/LOVEDEBUG
 
 require("libraries.lovedebug.lovedebug")
@@ -29,12 +29,20 @@ require("modules.game")
 
 local game = Game()
 
-function love.update(deltaTime)
-    game:update()
+function love.update(dt)
+    game:update(dt)
 end
 
 function love.draw()
     game:draw()
+end
+
+function love.keypressed(key, scan_code, is_repeat)
+    game:keyPressed(key, scan_code, is_repeat)
+end
+
+function love.keyreleased(key, scan_code, is_repeat)
+    game:keyReleased(key, scan_code, is_repeat)
 end
 
 function love.mousepressed(x, y, button, isTouch)
@@ -49,7 +57,4 @@ function love.focus(focused)
     game:focus(focused)
 end
 
-function love.quit()
-    return true
-    -- return game.quit()
-end
+
