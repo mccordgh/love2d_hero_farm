@@ -3,7 +3,7 @@ GameConstants = {
     TileWidth = 32 * 2,
     TileScale = 2,
 
-    HorizontalTileCount = 10,
+    HorizontalTileCount = 10 * 2,
     VerticalTileCount = 16,
 
     PlayerWidth = 32 * 2,
