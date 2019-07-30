@@ -1,3 +1,5 @@
+require("modules.entities.static_entities.barn")
+
 WorldOne = Class{
     init = function(self, handler, entityManager)
         self.handler = handler
@@ -8,6 +10,8 @@ WorldOne = Class{
 
     initialize = function(self)
         self.handler:getTileMapManager():loadTiledMap("assets.tile_maps.bad_map")
+
+        self.entityManager:addEntity(Barn(self.handler, 5, 5))
         -- self.tileMap = self.createTileMap()
         -- self.entityManager:createLevelCards()
     end;

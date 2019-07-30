@@ -24,13 +24,6 @@ Player = Class {
         self.handler:getCamera():lookAt(self.x * GameConstants.TileWidth, self.y * GameConstants.TileHeight)
     end;
 
-    draw = function(self)
-        local x = self.x * GameConstants.TileWidth
-        local y = self.y * GameConstants.TileHeight
-
-        love.graphics.draw(self.asset.img, x, y, 0)
-    end;
-
     getInput = function(self, dt)
         self.xMove = 0;
         self.yMove = 0;
