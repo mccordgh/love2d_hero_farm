@@ -16,6 +16,7 @@ Creature = Class {
     end;
 
     move = function(self)
+
         self.x = self.x + self.xMove
         self.y = self.y + self.yMove
     end

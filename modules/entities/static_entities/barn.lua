@@ -13,6 +13,8 @@ Barn = Class {
         self.y = y
         self.width = 128
         self.height = 96
+
+        self.bounds = self.handler:getHC():rectangle(self.x, self.y, self.width, self.height)
     end;
 
     draw = function(self)

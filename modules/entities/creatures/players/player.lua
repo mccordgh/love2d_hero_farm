@@ -16,11 +16,14 @@ Player = Class {
         self.xMove = 0
         self.yMove = 0
         self.speed = 8
+
+        self.bounds = self.handler:getHC():rectangle(self.x, self.y, self.width, self.height)
     end;
 
     update = function(self, dt)
         self:getInput(dt)
         self:move()
+
         self.handler:getCamera():lookAt(self.x * GameConstants.TileWidth, self.y * GameConstants.TileHeight)
     end;
 

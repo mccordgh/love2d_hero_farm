@@ -5,6 +5,8 @@ require('modules.tiles.tile_manager')
 require('modules.tiles.tile_map_manager')
 require('modules.worlds.world_manager')
 
+HC = require("libraries.HC")
+
 Camera = require("libraries.hump.camera")
 -- require('debug.debugger')
 
@@ -14,6 +16,7 @@ Handler = Class{
 
         -- self.debugger = Debugger(self)
         self.camera = Camera.new()
+        self.hc = HC.new(GameConstants.TileWidth * 4)
 
         self.assetManager = AssetManager(self)
         self.keyManager = KeyManager(self)
@@ -46,6 +49,10 @@ Handler = Class{
 
     getCamera = function(self)
         return self.camera
+    end;
+
+    getHC = function(self)
+        return self.hc
     end;
 
     getKeyManager = function(self)
